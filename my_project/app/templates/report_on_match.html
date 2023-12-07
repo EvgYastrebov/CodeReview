@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Report</title>
+</head>
+<body>
+    {% for match in report['match'] %}
+        <h1>Report on {{ match['h_team'] }} {{ match['h_goals'] }} ({{ match['h_xg'] }}) : ({{ match['a_xg'] }}) {{ match['a_goals'] }} {{ match['a_team'] }}</h1>
+        <h2>{{ match['h_team'] }} best players:</h2>
+        <ul>
+            {% if report['h'] %}
+                {% for player in report['h'] %}
+                    <li>
+                        <h3>{{ player['name'] }}</h3>
+                        <p>Shots: {{ player['shots'] }}</p>
+                        <p>xG: {{ player['xg'] }}</p>
+                        <p>Goals: {{ player['goals'] }}</p>
+                        <p>Key Passes: {{ player['key_passes'] }}</p>
+                        <p>xA: {{ player['xa'] }}</p>
+                        <p>Assists: {{ player['assists'] }}</p>
+                    </li>
+                {% endfor %}
+            {% else %}
+                <p>There was no good players</p>
+            {% endif %}
+        </ul>
+        <h2>{{ match['a_team'] }} best players:</h2>
+        <ul>
+            {% if report['a'] %}
+                {% for player in report['a'] %}
+                    <li>
+                    <h3>{{ player['name'] }}</h3>
+                    <p>Shots: {{ player['shots'] }}</p>
+                    <p>xG: {{ player['xg'] }}</p>
+                    <p>Goals: {{ player['goals'] }}</p>
+                    <p>Key Passes: {{ player['key_passes'] }}</p>
+                    <p>xA: {{ player['xa'] }}</p>
+                    <p>Assists: {{ player['assists'] }}</p>
+                </li>
+                {% endfor %}
+            {% else %}
+                <p>There was no good players</p>
+            {% endif %}
+        </ul>
+    {% endfor %}
+    </body>
+</html>

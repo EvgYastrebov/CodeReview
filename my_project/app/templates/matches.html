@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Matches Data</title>
+</head>
+<body>
+    <h1>Available matches</h1>
+    <table>
+        <tr>
+            <th>Match ID</th>
+            <th>Home Team</th>
+            <th>Goals</th>
+            <th>xG</th>
+            <th> </th>
+            <th>xG</th>
+            <th>Goals</th>
+            <th>Away Team</th>
+        </tr>
+        {% for match_id, data in matches_data.items() %}
+        <tr>
+            <td>{{ match_id }}</td>
+            <td>{{ data.h_team }}</td>
+            <td>{{ data.h_goals }}</td>
+            <td>{{ data.h_xg }}</td>
+            <td>  :  </td>
+            <td>{{ data.a_xg }}</td>
+            <td>{{ data.a_goals }}</td>
+            <td>{{ data.a_team }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

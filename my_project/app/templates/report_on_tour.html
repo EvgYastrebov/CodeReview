@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Report</title>
+</head>
+<body>
+    <h1>Report on tournament {{ tournament }} tour number {{ tour }}</h1>
+    <h2>Best players by shots:</h2>
+    <ul>
+        {% if report['shots'] %}
+            {% for player in report['shots'] %}
+                <li>
+                    <p>{{ player['shots'] }} - {{ player['name'] }}({{ player['team'] }})</p>
+                </li>
+            {% endfor %}
+        {% else %}
+            <p>There was no good players</p>
+        {% endif %}
+    </ul>
+    <h2>Best players by xg:</h2>
+    <ul>
+        {% if report['xg'] %}
+            {% for player in report['xg'] %}
+                <li>
+                <p>{{ player['xg'] }} - {{ player['name'] }}({{ player['team'] }})</p>
+            </li>
+            {% endfor %}
+        {% else %}
+            <p>There was no good players</p>
+        {% endif %}
+    </ul>
+    <h2>Best players by xa:</h2>
+    <ul>
+        {% if report['xa'] %}
+            {% for player in report['xa'] %}
+                <li>
+                <p>{{ player['xa'] }} - {{ player['name'] }}({{ player['team'] }})</p>
+            </li>
+            {% endfor %}
+        {% else %}
+            <p>There was no good players</p>
+        {% endif %}
+    </ul>
+    </body>
+</html>

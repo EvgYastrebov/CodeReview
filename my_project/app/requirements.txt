@@ -1,0 +1,6 @@
+app
+flask
+sqlalchemy
+psycopg2
+beautifulsoup4
+lxml
