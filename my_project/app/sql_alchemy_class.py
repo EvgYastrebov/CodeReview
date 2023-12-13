@@ -1,6 +1,8 @@
 from sqlalchemy import Column, Integer, Float, String, Boolean, ForeignKey
 from sqlalchemy.orm import relationship
 from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.dialects.postgresql import UUID
+import uuid
 
 Base = declarative_base()
 
@@ -13,16 +15,17 @@ class Match(Base):
     a_team = Column(String)
     a_goals = Column(Integer)
     a_xg = Column(Float)
-    shots = relationship("Shots", backref="match", lazy="dynamic")
+    stats = relationship("Stats", backref="match", lazy="dynamic")
 
-class Shots(Base):
+class Stats(Base):
     __tablename__ = 'MatchStats'
-    shot_id = Column(Integer, primary_key=True)
-    match_id = Column(Integer, ForeignKey('Matches.match_id'))
-    result = Column(Boolean)
-    xg = Column(Float)
-    X = Column(Float)
-    Y = Column(Float)
-    h_a = Column(String)
+    EMPLOYEE_ID = Column(Integer, primary_key=True)
     player = Column(String)
-    player_assisted = Column(String)   
+    h_a = Column(String)
+    shots = Column(Integer)
+    goals = Column(Integer)
+    xg = Column(Float)
+    key_passes = Column(Integer)
+    assists = Column(Integer)
+    xa = Column(Float)
+    match_id = Column(Integer, ForeignKey('Matches.match_id'))

@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for
-from sqlalchemy import create_engine  
-from sqlalchemy.orm import sessionmaker  
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
 from bd import CreateTables, GetReportOnMatch, GetReportOnTour, InitTour, GetTourMatches, GetAllMatches
 from sql_alchemy_class import Base
 
